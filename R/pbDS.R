@@ -161,8 +161,8 @@ pbDS <- function(pb,
     })
     
     # remove empty clusters
-    rmv <- vapply(res, is.null, logical(1))
-    res <- res[!rmv]
+    #rmv <- vapply(res, is.null, logical(1))
+    #res <- res[!rmv]
     kids <- kids[names(res)]
     
     # reorganize & do global p-value adjustment
