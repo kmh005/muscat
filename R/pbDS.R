@@ -140,8 +140,8 @@ pbDS <- function(pb,
     res <- bplapply(
         BPPARAM = BPPARAM, 
         kids, function (k) {
-        #rmv <- n_cells[k, ] < min_cells
-        d <- design[colnames(y <- pb), , drop = FALSE]
+        rmv <- n_cells[k, ] < min_cells
+        d <- design[colnames(y <- pb[,!rmv]), , drop = FALSE]
         if (filter %in% c("samples", "both")) {
             ls <- colSums(assay(y, k))
             ol <- isOutlier(ls, log = TRUE, type = "lower", nmads = 3)
